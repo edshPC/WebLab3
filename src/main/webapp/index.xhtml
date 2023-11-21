@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+    <meta name="viewport" content="initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html" />
+    <h:outputStylesheet library="styles" name="main.css" />
+    <title>WebLab3</title>
+</h:head>
+
+<h:body>
+    <table id="main-table">
+        <tr>
+            <td colspan="3" id="header">
+                <div class="container">
+                    <p>Лабораторная работа #3</p>
+                    <p>Выполнил Щербинин Эдуард P3214</p>
+                    <p>Вариант 2469</p>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="container">
+
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div id="container" class="margin">
+        <div id="main" class="margin">
+            <div id="clock-container" class="margin blured-container round-container">
+                <h:form id="time-form" styleClass="margin">
+                    <p>
+                        Welcome again! Enjoy current time: <!--h:outputText id="updateable-time" value="#{timeBean.nowTime}" /-->
+                    </p>
+                    <p:clock pattern="dd.MM.yyyy HH:mm:ss" mode="server" autoSync="true" syncInterval="8000" />
+                </h:form>
+                <h:form id="hiddenForm" style="display:none">
+                    <h:commandButton id="updatePresentDateTime">
+                        <f:ajax render="time-form:updateable-time" />
+                    </h:commandButton>
+                </h:form>
+            </div>
+            <div id="redirect-container" class="margin blured-container round-container fit-content-container">
+                <h:form styleClass="margin">
+                    <h:commandButton id="redirect" action="goToPage2" value="What am I doing here? I need to go somewhere important place..." />
+                </h:form>
+            </div>
+        </div>
+    </div>
+
+    <h:outputScript>
+        setInterval(function() {
+            //document.getElementById("hiddenForm:updatePresentDateTime").click();
+        }, 8000);
+    </h:outputScript>
+</h:body>
+
+</html>

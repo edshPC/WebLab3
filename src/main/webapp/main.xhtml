@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html"/>
+    <h:outputStylesheet name="styles/main.css"/>
+    <title>WebLab3</title>
+    <script src="https://www.desmos.com/api/v1.8/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"
+            type="text/javascript">
+    </script>
+</h:head>
+
+<h:body>
+
+    <table id="main-table">
+        <tr>
+            <td colspan="3" id="header">
+                <div class="container">
+                    <p>Выбери координаты или нажми по графику</p>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="container">
+                    <h:form id="selection">
+                        <table id="input-table">
+                            <tr>
+                                <td colspan="3" class="input-cell-l">Введи значения:</td>
+                            </tr>
+                            <tr>
+                                <td class="input-cell-l">X:</td>
+                                <td id="x-cell">
+                                    <p:spinner id="x-select" value="#{inputBean.x}" min="-5" max="5" stepFactor="0.1" validator="#{inputBean.validateX}"
+                                               required="true" requiredMessage="Please input an X">
+                                        <f:ajax execute="x-select" render="@form" />
+                                    </p:spinner>
+                                    <p><h:message for="x-select" class="error" /></p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="input-cell-l">Y:</td>
+                                <td id="y-cell">
+                                    <h:inputText class="input-select rounded box" id="y-select" value="#{inputBean.y}"
+                                                 validator="#{inputBean.validateY}"
+                                                 required="true" requiredMessage="Please input an Y"
+                                                 converterMessage="Y must be a number"
+                                                 name="y-select" type="text" a:placeholder="(-5; 3)">
+                                        <f:ajax execute="y-select" render="@form" />
+                                    </h:inputText>
+                                    <p><h:message for="y-select" class="error" /></p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="input-cell-l">R:</td>
+                                <td id="r-cell">
+                                    <p:spinner id="r-select" value="#{inputBean.r}" min="1" max="3" stepFactor="0.5"
+                                            required="true" requiredMessage="Please input an R" validator="#{inputBean.validateR}">
+                                        <f:ajax execute="r-select" render="@form" />
+                                    </p:spinner>
+                                    <p><h:message for="r-select" class="error" /></p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <h:commandButton id="submit-button" class="rounded" value="Вычислить" action="#{requestHandlerBean.checkHit}">
+                                        <f:ajax execute="@form" render="result-table"/>
+                                    </h:commandButton>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <h:commandButton id="clear-button" class="rounded" value="Очистить" action="#{requestHandlerBean.clear}">
+                                        <f:ajax execute="@form" render="result-table"/>
+                                    </h:commandButton>
+                                </td>
+                            </tr>
+                        </table>
+                        <p:remoteCommand name="checkHit" update="@form result-table" action="#{requestHandlerBean.checkHit}"/>
+                    </h:form>
+                </div>
+            </td>
+            <td>
+                <div class="container rounded" id="graph-container">
+                    <div id="graph"></div>
+                </div>
+            </td>
+            <td>
+                <div class="container">
+                    <h:dataTable id="result-table" value="#{resultsBean.results}" var="result">
+                        <h:column>
+                            <f:facet name = "header" >X</f:facet>
+                            <h:outputText value="#{result.x}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name = "header">Y</f:facet>
+                            <h:outputText value="#{result.y}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name = "header">R</f:facet>
+                            <h:outputText value="#{result.r}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name = "header">Result</f:facet>
+                            <h:outputText value="#{result.getResultStr()}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name = "header">Executed at</f:facet>
+                            <h:outputText value="#{result.getDateTimeStr()}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name = "header">Execution time</f:facet>
+                            <h:outputText value="#{result.getExecTimeStr()}" />
+                        </h:column>
+                    </h:dataTable>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <h:outputScript name="scripts/dataProcess.js"/>
+    <h:outputScript name="scripts/graph.js"/>
+    <h:outputScript>
+        defaultR = #{inputBean.r != null? inputBean.r : 1}+0;
+    </h:outputScript>
+</h:body>
+</html>
