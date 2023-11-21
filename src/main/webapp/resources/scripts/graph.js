@@ -23,7 +23,7 @@ function graphEntry() {
     graphElement.addEventListener('mousedown', ev => {
         graphElement.moved = false;
     });
-    setBounds(3);
+    setBounds(5);
     makeGraph(defaultR)
 }
 
@@ -61,13 +61,17 @@ function drawPoint(x, y, res) {
     });
 }
 
+function clearPoints() {
+    while (pointId > 0)
+        graph.removeExpression({ id: `p${--pointId}` });
+}
+
 function setBounds(r) {
-    let bounds = r*2;
     graph.setMathBounds({
-        left: -bounds,
-        right: bounds,
-        bottom: -bounds,
-        top: bounds
+        left: -r,
+        right: r,
+        bottom: -r,
+        top: r
     });
 }
 

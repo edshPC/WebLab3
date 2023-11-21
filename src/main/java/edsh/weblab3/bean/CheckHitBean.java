@@ -1,14 +1,11 @@
-package edsh.weblab3;
+package edsh.weblab3.bean;
 
 import jakarta.enterprise.context.SessionScoped;
 import jakarta.faces.context.FacesContext;
-import jakarta.inject.Inject;
 import jakarta.inject.Named;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
 @Named
@@ -30,8 +27,7 @@ public class CheckHitBean implements Serializable {
         res.result = checkHit(res.x, res.y, res.r);
         res.dateTime = LocalDateTime.now();
         res.execTime = (double) (System.nanoTime() - startTime) / 1000;
-        FacesContext.getCurrentInstance().getPartialViewContext().getEvalScripts()
-                .add("drawPoint(" + res.x + ", " + res.y + ", " + res.result + ");");
+        res.drawPoint();
         return res;
     }
 
@@ -43,6 +39,11 @@ public class CheckHitBean implements Serializable {
             if(y > 0) return false; // up left
             else return x*x + y*y <= r*r/4; // down left
         }
+    }
+
+    public void drawPoint() {
+        FacesContext.getCurrentInstance().getPartialViewContext().getEvalScripts()
+                .add("drawPoint(" + x + ", " + y + ", " + result + ");");
     }
 
     public double getX() {

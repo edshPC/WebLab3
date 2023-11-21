@@ -1,4 +1,4 @@
-package edsh.weblab3;
+package edsh.weblab3.bean;
 
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.enterprise.context.SessionScoped;

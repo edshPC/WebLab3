@@ -11,7 +11,7 @@ function borderRed(id) {
 
 function onLoad(ev) {
     graphEntry();
-
+    drawAllPoints();
 }
 
 window.addEventListener("load", onLoad);

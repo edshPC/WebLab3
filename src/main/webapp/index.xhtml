@@ -5,8 +5,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:p="http://primefaces.org/ui">
 
 <h:head>
     <meta name="viewport" content="initial-scale=1.0" />
@@ -29,38 +28,22 @@
         <tr>
             <td>
                 <div class="container">
-
+                    <p>Текущее время:</p>
+                    <h:outputText id="clock" value="#{timeBean.dateTimeStr}"/>
                 </div>
             </td>
         </tr>
+        <tr>
+            <td>
+                <h:form class="container">
+                    <h:commandButton id="redirect" action="goToMain" value="Go to main page!" />
+                    <p:remoteCommand name="requestTime" update="clock" />
+                </h:form>
+            </td>
+        </tr>
     </table>
-    <div id="container" class="margin">
-        <div id="main" class="margin">
-            <div id="clock-container" class="margin blured-container round-container">
-                <h:form id="time-form" styleClass="margin">
-                    <p>
-                        Welcome again! Enjoy current time: <!--h:outputText id="updateable-time" value="#{timeBean.nowTime}" /-->
-                    </p>
-                    <p:clock pattern="dd.MM.yyyy HH:mm:ss" mode="server" autoSync="true" syncInterval="8000" />
-                </h:form>
-                <h:form id="hiddenForm" style="display:none">
-                    <h:commandButton id="updatePresentDateTime">
-                        <f:ajax render="time-form:updateable-time" />
-                    </h:commandButton>
-                </h:form>
-            </div>
-            <div id="redirect-container" class="margin blured-container round-container fit-content-container">
-                <h:form styleClass="margin">
-                    <h:commandButton id="redirect" action="goToPage2" value="What am I doing here? I need to go somewhere important place..." />
-                </h:form>
-            </div>
-        </div>
-    </div>
-
     <h:outputScript>
-        setInterval(function() {
-            //document.getElementById("hiddenForm:updatePresentDateTime").click();
-        }, 8000);
+        setInterval(requestTime, 7000);
     </h:outputScript>
 </h:body>
 

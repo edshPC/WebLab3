@@ -69,13 +69,13 @@
                             <tr>
                                 <td colspan="3">
                                     <h:commandButton id="submit-button" class="rounded" value="Вычислить" action="#{requestHandlerBean.checkHit}">
-                                        <f:ajax execute="@form" render="result-table"/>
+                                        <f:ajax execute="@form" render="result-table" />
                                     </h:commandButton>
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="3">
-                                    <h:commandButton id="clear-button" class="rounded" value="Очистить" action="#{requestHandlerBean.clear}">
+                                    <h:commandButton id="clear-button" class="rounded" value="Очистить" action="#{requestHandlerBean.clear}" immediate="true">
                                         <f:ajax execute="@form" render="result-table"/>
                                     </h:commandButton>
                                 </td>
@@ -121,8 +121,15 @@
                 </div>
             </td>
         </tr>
+        <tr>
+            <td>
+                <h:form class="container">
+                    <h:commandButton id="redirect" action="goToIndex" value="Go back to start!" />
+                    <p:remoteCommand name="drawAllPoints" update="@this" action="#{requestHandlerBean.draw}" />
+                </h:form>
+            </td>
+        </tr>
     </table>
-
     <h:outputScript name="scripts/dataProcess.js"/>
     <h:outputScript name="scripts/graph.js"/>
     <h:outputScript>
