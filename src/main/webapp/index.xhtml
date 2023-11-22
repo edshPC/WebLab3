@@ -28,15 +28,15 @@
         <tr>
             <td>
                 <div class="container">
-                    <p>Текущее время:</p>
-                    <h:outputText id="clock" value="#{timeBean.dateTimeStr}"/>
+                    <p><s>Не</s>Точное время:</p>
+                    <h:outputText id="clock" style="font-size: 30px" value="#{timeBean.dateTimeStr}"/>
                 </div>
             </td>
         </tr>
         <tr>
             <td>
                 <h:form class="container">
-                    <h:commandButton id="redirect" action="goToMain" value="Go to main page!" />
+                    <h:commandButton id="redirect" styleClass="redirect rounded" action="goToMain" value="Go to main page!" />
                     <p:remoteCommand name="requestTime" update="clock" />
                 </h:form>
             </td>

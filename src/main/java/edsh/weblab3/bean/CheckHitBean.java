@@ -100,7 +100,7 @@ public class CheckHitBean implements Serializable {
     }
 
     public String getExecTimeStr() {
-        return execTime + "ns";
+        return execTime + "mks";
     }
 
     public void setExecTime(double execTime) {

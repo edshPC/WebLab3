@@ -9,24 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73413c93-721b-4512-b8b2-f614ed949266" name="Changes" comment="main page">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edsh/weblab3/bean/timeBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edsh/weblab3/db/DatabaseHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edsh/weblab3/db/SQLRequests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-config.xml" afterDir="false" />
+    <list default="true" id="73413c93-721b-4512-b8b2-f614ed949266" name="Changes" comment="index page + db">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edsh/weblab3/CheckHitBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edsh/weblab3/bean/CheckHitBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edsh/weblab3/InputBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edsh/weblab3/bean/InputBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edsh/weblab3/RequestHandlerBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edsh/weblab3/bean/RequestHandlerBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edsh/weblab3/ResultsBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edsh/weblab3/bean/ResultsBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edsh/weblab3/bean/CheckHitBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edsh/weblab3/bean/CheckHitBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/index.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/main.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/main.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/scripts/dataProcess.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/scripts/dataProcess.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/scripts/graph.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/scripts/graph.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/styles/main.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +50,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/edshh/IDEA/WebLab3/src/main/java/edsh/weblab3",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -179,6 +168,8 @@
       <workItem from="1700562254326" duration="3141000" />
       <workItem from="1700565538735" duration="2062000" />
       <workItem from="1700567613515" duration="34356000" />
+      <workItem from="1700607325259" duration="404000" />
+      <workItem from="1700641980751" duration="4043000" />
     </task>
     <task id="LOCAL-00001" summary="main page">
       <option name="closed" value="true" />
@@ -188,7 +179,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700592722329</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="index page + db">
+      <option name="closed" value="true" />
+      <created>1700607366015</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1700607366015</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,6 +195,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="main page" />
-    <option name="LAST_COMMIT_MESSAGE" value="main page" />
+    <MESSAGE value="index page + db" />
+    <option name="LAST_COMMIT_MESSAGE" value="index page + db" />
   </component>
 </project>

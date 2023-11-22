@@ -42,31 +42,31 @@ body {
     margin: 0;
 }
 
-button:hover, #y-select:focus {
+button:hover, input[type=submit]:hover, #y-select:focus, .ui-spinner input:focus {
     background-color: #30363d;
     border-color: #8b949e;
 }
 
-button, .box, #result-table tr td {
+button, input[type=submit], .box, #result-table tr td, .ui-spinner input {
     color: #c9d1d9;
     background-color: #21262d;
     padding: 2px;
     border: 2px solid rgba(240, 246, 252, 0.1);
 }
 
-button {
+button, input[type=submit] {
     cursor: pointer;
 }
 
-.x-button, .r-button {
-    width: 25px;
-    height: 25px;
-    position: relative;
-}
-
-button:active {
+button:active, input[type=submit]:active {
     background-color: #6b6e39;
 }
+
+.redirect {
+    font-size: 24px;
+    padding: 5px;
+}
+
 
 .rounded {
     border-radius: 0.4em;
@@ -89,10 +89,11 @@ button:active {
     border-radius: 0.2em;
 }
 
-#y-select {
-    margin: 0 2px;
-    width: 79px;
+#y-cell input, .ui-spinner .ui-spinner-input {
+    margin: 2px 0;
+    width: 130px;
     height: 30px;
+    font-size: 14px;
 }
 
 #result-table {
@@ -102,19 +103,24 @@ button:active {
     overflow-y: scroll;
 }
 
-#result-table tr td {
+#result-table tr td, #result-table tr th {
     margin: 10px;
-    padding: 0 10px;
+    padding: 1px 10px;
     width: fit-content;
     border-radius: 0.2em;
 }
-#result-table #first-row td {
+#result-table thead tr th {
     background-color: #3a424f;
+}
+
+.error {
+    color: #934040;
+    font-size: 13px;
 }
 
 .red-border {
     border: 2px solid #8c2121;
-    border-radius: 0.4em;
+    border-radius: 0.5em;
 }
 .x-button.selected, .r-button.selected, #result-table .last-row-hit td {
     background-color: #43735d;

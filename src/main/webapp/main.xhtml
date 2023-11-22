@@ -122,9 +122,9 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td colspan="3">
                 <h:form class="container">
-                    <h:commandButton id="redirect" action="goToIndex" value="Go back to start!" />
+                    <h:commandButton id="redirect" styleClass="redirect rounded" action="goToIndex" value="Go back to start!" />
                     <p:remoteCommand name="drawAllPoints" update="@this" action="#{requestHandlerBean.draw}" />
                 </h:form>
             </td>
